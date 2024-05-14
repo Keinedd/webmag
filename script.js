@@ -1,41 +1,46 @@
 function getData() {
-   fetch('data.json')
-     .then((response) => {
-       if (!response.ok) {
-         throw new Error('Network response was not ok');
+  fetch('data.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Process the data here
+      console.log('Data retrieved from JSON file:', data);
+
+      function displayJournalTitle() {
+       let title = data.journal.nomJournal;
+       console.log(title);
+       let titleElement = document.getElementById("title");
+       console.log(titleElement);
+       if (titleElement) {
+         titleElement.insertAdjacentHTML("beforeend", title);
+       } else {
+         console.error("Element with id 'title' not found.");
        }
-       return response.json();
-     })
-     .then((data) => {
-       // Traitez les données comme vous le souhaitez
-       console.log('Données récupérées du fichier JSON :', data);
-       /// ON ECRIT LE CODE ICI ! 
-       console.log(data);
+      }
+      
+      displayJournalTitle();
 
-       function displayjournaltitle(){
-        let title = data.journal.nomJournal;
-        console.log(title);
-        let titleID = document.getElementById("title");
-        console.log(titleID);
-        titleID.insertAdjacentHTML("beforeend", title);
+      function displayCatchPhrase() {
+       let phrase = data.journal.catchPhrase;
+       console.log(phrase);
+       let phraseElement = document.getElementById("catchPhrase");
+       console.log(phraseElement);
+       if (phraseElement) {
+         phraseElement.insertAdjacentHTML("beforeend", phrase);
+       } else {
+         console.error("Element with id 'catchPhrase' not found.");
        }
-       displayjournaltitle();
+      }
+      
+      displayCatchPhrase();
 
-       function displaycatchphrase(){
-        let phrased = data.journal.catchPhrase;
-        console.log(Phrased);
-        let titleID = document.getElementById("Phrased");
-        console.log(titleID);
-        titleID.insertAdjacentHTML("beforeend",phrased);
-       }
-       
-       
+      // Other functions can go here if needed
+    })
+    .catch((error) => console.error('Error reading data:', error));
+}
 
-       /// FIN DU CODE
-     })
-     .catch((error) => console.error('Erreur lors de la lecture des données :', error));
- }
- 
- getData();
-
- ///ON écrit les fonctions ici
+getData();
