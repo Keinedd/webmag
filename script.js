@@ -10,6 +10,25 @@ function getData() {
        // Traitez les données comme vous le souhaitez
        console.log('Données récupérées du fichier JSON :', data);
        /// ON ECRIT LE CODE ICI ! 
+       console.log(data);
+
+       function displayjournaltitle(){
+        let title = data.journal.nomJournal;
+        console.log(title);
+        let titleID = document.getElementById("title");
+        console.log(titleID);
+        titleID.insertAdjacentHTML("beforeend", title);
+       }
+       displayjournaltitle();
+
+       function displaycatchphrase(){
+        let phrased = data.journal.catchPhrase;
+        console.log(Phrased);
+        let titleID = document.getElementById("Phrased");
+        console.log(titleID);
+        titleID.insertAdjacentHTML("beforeend",phrased);
+       }
+       
        
 
        /// FIN DU CODE
