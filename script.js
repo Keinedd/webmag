@@ -65,6 +65,20 @@ function getData() {
       }
 
       displayMainArticle();
+
+      function displayArticleTitle() {
+        let phrase = data.journal.titre;
+        console.log(phrase);
+        let phraseElement = document.getElementById("titre");
+        console.log(phraseElement);
+        if (phraseElement) {
+          phraseElement.insertAdjacentHTML("beforeend", phrase);
+        } else {
+          console.error("Element with id 'titre' not found.");
+        }
+      }
+
+      displayArticleTitle();
       
     })
     .catch((error) => console.error('Error reading data:', error));
