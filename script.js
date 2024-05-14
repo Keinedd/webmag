@@ -38,6 +38,33 @@ function getData() {
       
       displayCatchPhrase();
 
+      function displaytexteAppelAction() {
+        let phrase = data.journal.texteAppelAction;
+        console.log(phrase);
+        let phraseElement = document.getElementById("texteAppelAction");
+        console.log(phraseElement);
+        if (phraseElement) {
+          phraseElement.insertAdjacentHTML("beforeend", phrase);
+        } else {
+          console.error("Element with id 'texteAppelAction' not found.");
+        }
+      }
+
+      displaytexteAppelAction();
+
+      function displayMainArticle() {
+        let phrase = data.journal.articlePrincipal;
+        console.log(phrase);
+        let phraseElement = document.getElementById("articlePrincipal");
+        console.log(phraseElement);
+        if (phraseElement) {
+          phraseElement.insertAdjacentHTML("beforeend", phrase);
+        } else {
+          console.error("Element with id 'texteAppelAction' not found.");
+        }
+      }
+
+      displayMainArticle();
       
     })
     .catch((error) => console.error('Error reading data:', error));
