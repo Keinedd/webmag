@@ -7,7 +7,7 @@ function getData() {
       return response.json();
     })
     .then((data) => {
-      // Process the data here
+      
       console.log('Data retrieved from JSON file:', data);
 
       function displayJournalTitle() {
@@ -25,9 +25,9 @@ function getData() {
       displayJournalTitle();
 
       function displayCatchPhrase() {
-       let phrase = data.journal.catchPhrase;
+       let phrase = data.journal.phraseAccroche;
        console.log(phrase);
-       let phraseElement = document.getElementById("catchPhrase");
+       let phraseElement = document.getElementById("phraseAccroche");
        console.log(phraseElement);
        if (phraseElement) {
          phraseElement.insertAdjacentHTML("beforeend", phrase);
@@ -38,7 +38,7 @@ function getData() {
       
       displayCatchPhrase();
 
-      // Other functions can go here if needed
+      
     })
     .catch((error) => console.error('Error reading data:', error));
 }
